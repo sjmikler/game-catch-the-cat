@@ -1,9 +1,17 @@
 import os
+import time
 from pathlib import Path
+from threading import Thread
 
 import playsound
 
 SOUND_LOCATION = "sounds/"
+
+LAST_SOUND = 0
+
+
+def _play(sound):
+    playsound.playsound(sound, block=True)
 
 
 class SoundManager:
@@ -17,7 +25,12 @@ class SoundManager:
             self.sounds[Path(name).stem] = path
 
     def play(self, name):
-        playsound.playsound(self.sounds[name], block=False)
+        global LAST_SOUND
+        t0 = time.time()
+        if t0 - LAST_SOUND > 0.1:
+            t = Thread(target=_play, args=[self.sounds[name]])
+            t.start()
+        LAST_SOUND = t0
 
 
 if __name__ == "__main__":
