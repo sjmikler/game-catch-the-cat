@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-import simpleaudio
+import playsound
 
 SOUND_LOCATION = "sounds/"
 
@@ -17,8 +17,7 @@ class SoundManager:
             self.sounds[Path(name).stem] = path
 
     def play(self, name):
-        with open(self.sounds[name], "rb") as f:
-            simpleaudio.WaveObject.from_wave_file(f).play()
+        playsound.playsound(self.sounds[name], block=False)
 
 
 if __name__ == "__main__":
