@@ -21,7 +21,6 @@ class SoundManager:
 
         for name in self.sound_files:
             path = os.path.join(location, name)
-            path = Path(path).absolute()
             self.sounds[Path(name).stem] = path
 
     def play(self, name):
