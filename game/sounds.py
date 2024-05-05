@@ -29,7 +29,7 @@ class SoundManager:
         if t0 - LAST_SOUND > 0.1:
             t = Thread(target=_play, args=[self.sounds[name]])
             t.start()
-        LAST_SOUND = t0
+            LAST_SOUND = t0
 
 
 if __name__ == "__main__":
