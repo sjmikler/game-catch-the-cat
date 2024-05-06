@@ -73,7 +73,7 @@ def level1():
 
     goal = GoalObject(65, 537, sprite=sprite_manager.get("goal"))
     world.add_object(goal)
-    if FLAGS.easy:
+    if FLAGS.EASY:
         goal = GoalObject(20, 10, sprite=sprite_manager.get("goal"))
         world.add_object(goal)
     load_level_start_sound()
@@ -152,7 +152,7 @@ def level2():
 
     goal = GoalObject(65, 537, sprite=sprite_manager.get("goal"))
     world.add_object(goal)
-    if FLAGS.easy:
+    if FLAGS.EASY:
         goal = GoalObject(20, 10, sprite=sprite_manager.get("goal"))
         world.add_object(goal)
     load_level_start_sound()

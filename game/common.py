@@ -33,8 +33,8 @@ def parse_command_line_arguments():
     args = parser.parse_args()
 
     FLAGS.LOGGING_FILE = args.logging
-    FLAGS.silent = args.silent
-    FLAGS.easy = args.easy
+    FLAGS.SILENT = args.silent
+    FLAGS.EASY = args.easy
     return args
 
 
