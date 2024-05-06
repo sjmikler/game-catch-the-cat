@@ -1,3 +1,4 @@
+from .common import FLAGS
 from .objects import GoalObject, HeroObject, VisibleObject, World
 from .sounds import SoundManager
 from .sprites import SpriteManager
@@ -10,7 +11,7 @@ def load_level_start_sound():
     sound_manager.play("start")
 
 
-def level1(easy=False):
+def level1():
     world = World()
     hero = HeroObject(
         0,
@@ -72,14 +73,14 @@ def level1(easy=False):
 
     goal = GoalObject(65, 537, sprite=sprite_manager.get("goal"))
     world.add_object(goal)
-    if easy:
+    if FLAGS.easy:
         goal = GoalObject(20, 10, sprite=sprite_manager.get("goal"))
         world.add_object(goal)
     load_level_start_sound()
     return world, hero
 
 
-def level2(easy=False):
+def level2():
     world = World()
     hero = HeroObject(
         10,
@@ -151,14 +152,14 @@ def level2(easy=False):
 
     goal = GoalObject(65, 537, sprite=sprite_manager.get("goal"))
     world.add_object(goal)
-    if easy:
+    if FLAGS.easy:
         goal = GoalObject(20, 10, sprite=sprite_manager.get("goal"))
         world.add_object(goal)
     load_level_start_sound()
     return world, (hero, hero2)
 
 
-def level_game_clear(easy):
+def level_game_clear():
     world = World()
     text = VisibleObject(0, 0, sprite=sprite_manager.get("game_clear"))
     world.add_object(text)

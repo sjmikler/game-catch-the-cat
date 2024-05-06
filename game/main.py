@@ -48,7 +48,7 @@ def game_stop():
 def game_start():
     FLAGS.GAME_ON = True
 
-    world, hero = levels[CURRENT_LEVEL](easy=args.easy)
+    world, hero = levels[CURRENT_LEVEL]()
     camera.set_world(world)
     camera.follow(hero)
     camera.launch_display_thread()
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
     world_finished = False
 
-    world, hero = levels[CURRENT_LEVEL](easy=args.easy)
+    world, hero = levels[CURRENT_LEVEL]()
     camera.set_world(world)
     camera.follow(hero)
     camera.launch_display_thread()
