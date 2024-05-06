@@ -4,6 +4,8 @@ from pathlib import Path
 
 from playsound3 import playsound
 
+from .common import FLAGS
+
 SOUND_LOCATION = "sounds/"
 
 LAST_SOUND = 0
@@ -19,6 +21,9 @@ class SoundManager:
             self.sounds[Path(name).stem] = path
 
     def play(self, name):
+        if FLAGS.SILENT:
+            return
+
         global LAST_SOUND
         t0 = time.time()
         if t0 - LAST_SOUND > 0.1:
