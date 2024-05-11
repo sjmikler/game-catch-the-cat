@@ -20,7 +20,7 @@ By default, we try to fill all the available terminal space.
 If this doesn't work, specify window size manually:
 
 ```
-python -m game.main --width 120 --height 40
+python -m game.main --width 40 --height 40
 ```
 
 ## Controls
